@@ -1,0 +1,74 @@
+
+body {
+    font-family: Piazzola, sans-serif;
+    font-weight: 400;
+    margin: 0;
+}
+
+h1 {
+    font-family: Paprika, Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #5B9AA0;
+}
+
+input[type=text], input[type=password] {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-shadow: 3px 3px 4px inset rgb(0, 0, 0, 0.25);
+}
+
+label {
+    margin: 10px;
+    font-weight: 600;
+    text-align: left;
+    color: white;
+}
+
+button {
+    font-family: Paprika, Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: white;
+    background-color: #5B9AA0;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
+    width: 100%;
+    padding: 10px;
+}
+
+.form div a {
+    font-family: Piazzola, sans-serif;
+    font-weight: 200;
+    font-style: italic;
+    color: #DDCE2A;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-header > h1 {
+    align-self: flex-start;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login {
+    background-color: #622569;
+    border-radius: 30px;
+    padding: 50px 40px;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
+}
+
