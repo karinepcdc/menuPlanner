@@ -2,65 +2,69 @@
 
 <html lang='pt-BR'>
 
-  <head>
+<head>
     <meta charset='UTF-8'>
     <title></title>
-    <link rel='stylesheet' href='css/normalize.css'> <!-- Estilo css de base que garante uma consistência melhor entre navegadores -->
+    <link rel='stylesheet' href='css/normalize.css'>
+    <!-- Estilo css de base que garante uma consistência melhor entre navegadores -->
     <link rel='stylesheet' href='css/login.css'> <!-- Css específicos de sua página -->
-    
-    
+
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mate&family=Pangolin&family=Paprika&family=Piazzolla:opsz,wght@8..30,100;8..30,400;8..30,600;8..30,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mate&family=Pangolin&family=Paprika&family=Piazzolla:opsz,wght@8..30,100;8..30,400;8..30,600;8..30,700&display=swap"
+          rel="stylesheet">
 
     <!-- Scripts -->
-    <script src='js/prefixfree.min.js'></script> <!-- Trata prefixos proprietários para propriedades CSS3 que ainda não se tornaram padrão entre navegadores. Adiciona automaticamente os prefixos dos browsers no código css quando necessário. -->
+    <script src='js/prefixfree.min.js'></script>
+    <!-- Trata prefixos proprietários para propriedades CSS3 que ainda não se tornaram padrão entre navegadores. Adiciona automaticamente os prefixos dos browsers no código css quando necessário. -->
 
-  </head>
-  
-  <body>
-    <!-- O seu HTML vem aqui! -->
-    <div class="content">
-        
-        <div class="content-header">
-            <h1 class="">Login</h1>
-        </div>
+</head>
 
-        <div class="login">
-            <form class="form" action="">
-                
-                <div>
-                    <label for="username" class="">Nome de usuário</label>
-                    <input 
-                        id="username"
-                        type="text" 
-                        class=""
-                        placeholder="e.g. Maria123">
-                </div>
+<body>
+<!-- O seu HTML vem aqui! -->
+<div class="content">
 
-                <div>
-                    <label for="passwd" class="">Senha</label>
-                    <input 
-                        id="passwd" 
-                        type="password" 
-                        class="">
-                </div>
-
-                <div>
-                    <a class href="">Cadastrar-se aqui!</a>
-                </div>
-
-                <div>
-                    <button id="submitBtn" type="submit" class="">Entrar</button>
-                </div>
-                
-                
-            </form>
-        </div>
+    <div class="content-header">
+        <h1 class="">Login</h1>
     </div>
 
-    <script src='js/jquery.min.js'></script> <!-- JQuery, biblioteca para JavaScript -->
-  </body>
+    <div class="login">
+        <form class="form" action="">
+
+            <div>
+                <label for="username" class="">Nome de usuário</label>
+                <input
+                        id="username"
+                        type="text"
+                        class=""
+                        placeholder="e.g. Maria123">
+            </div>
+
+            <div>
+                <label for="passwd" class="">Senha</label>
+                <input
+                        id="passwd"
+                        type="password"
+                        class=""
+                        placeholder="**********">
+            </div>
+
+            <div>
+                <a class href="">Cadastrar-se aqui!</a>
+            </div>
+
+            <div>
+                <button id="submitBtn" type="submit" class="">Entrar</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<script src='js/jquery.min.js'></script> <!-- JQuery, biblioteca para JavaScript -->
+</body>
 
 </html>
