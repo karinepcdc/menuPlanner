@@ -1,0 +1,26 @@
+body {
+    font-family: Piazzolla, sans-serif;
+    font-weight: 400;
+    margin: 0;
+}
+
+.header-style {
+    font-family: Paprika, Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #5B9AA0;
+}
+
+.background-style-primary {
+    background-color: #622569;
+    border-radius: 30px;
+    border: #411846;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
+}
+
+.link {
+    font-family: Piazzolla, sans-serif;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 1rem;
+    color: #DDCE2A;
+}

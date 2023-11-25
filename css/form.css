@@ -1,0 +1,37 @@
+
+input[type=text], input[type=password] {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 3px inset rgb(0, 0, 0, 0.25);
+}
+
+input::placeholder {
+    font-style: italic;
+}
+
+label {
+    font-family: Piazzolla, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+}
+
+button[type=submit] {
+    font-family: Paprika, Georgia, 'Times New Roman', Times, serif !important;
+    /*font-size: 14px;*/
+    color: white;
+    background-color: #5B9AA0 !important;
+    border-radius: 15px !important;
+    border: 0.5px solid #3d686c !important;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
+    width: 50%;
+    /*padding: 10px;*/
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.center-btn {
+    text-align: center;
+}
