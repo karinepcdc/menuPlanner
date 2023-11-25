@@ -1,74 +1,77 @@
 
 body {
-    font-family: Piazzola, sans-serif;
+    font-family: Piazzolla, sans-serif;
     font-weight: 400;
     margin: 0;
 }
 
-h1 {
+
+input[type=text], input[type=password] {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 3px inset rgb(0, 0, 0, 0.25);
+}
+
+input::placeholder {
+    font-style: italic;
+}
+
+label {
+    font-family: Piazzolla, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+}
+
+button {
+    font-family: Paprika, Georgia, 'Times New Roman', Times, serif !important;
+    /*font-size: 14px;*/
+    color: white;
+    background-color: #5B9AA0 !important;
+    border-radius: 15px !important;
+    border: 0.5px solid #3d686c !important;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
+    width: 50%;
+    /*padding: 10px;*/
+}
+
+.link {
+    font-family: Piazzolla, sans-serif;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 1rem;
+    color: #DDCE2A;
+}
+
+.header-style {
     font-family: Paprika, Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     color: #5B9AA0;
 }
 
-input[type=text], input[type=password] {
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    box-shadow: 3px 3px 4px inset rgb(0, 0, 0, 0.25);
-}
+.login-content {
+    max-width: 400px;
+    height: 400px;
 
-label {
-    margin: 10px;
-    font-weight: 600;
-    text-align: left;
-    color: white;
-}
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
 
-button {
-    font-family: Paprika, Georgia, 'Times New Roman', Times, serif;
-    font-size: 14px;
-    color: white;
-    background-color: #5B9AA0;
-    border-radius: 15px;
-    border: none;
-    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
-    width: 100%;
-    padding: 10px;
-}
-
-.form div a {
-    font-family: Piazzola, sans-serif;
-    font-weight: 200;
-    font-style: italic;
-    color: #DDCE2A;
-}
-
-.content {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-.content-header > h1 {
-    align-self: flex-start;
+.login-btn {
+    text-align: center;
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.form-group {
+    margin-bottom: 1rem;
 }
 
-.login {
+.background-style {
     background-color: #622569;
     border-radius: 30px;
-    padding: 50px 40px;
+    border: #411846;
     box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
 }
 
