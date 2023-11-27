@@ -1,3 +1,9 @@
 .img-thumbnail-receita {
     height: 5rem;
 }
+
+a.nav-receita {
+    text-decoration: none;
+    cursor: hand;
+    color: black;
+}

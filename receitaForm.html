@@ -20,6 +20,7 @@
     <link rel='stylesheet' href='css/common.css'>
     <link rel='stylesheet' href='css/form.css'>
     <link rel='stylesheet' href='css/receitaform.css'>
+    <link rel='stylesheet' href='css/receita.css'>
 
     <!-- Ensure proper rendering and touch zooming with mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,8 +41,14 @@
 
 <main>
     <div class="container pt-5 ps-5">
-        <h1 class="header-style-main-purple text-center">NOVA RECEITA</h1>
 
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <h1 class="header-style-main-purple text-center">NOVA RECEITA</h1>
+            </div>
+        </div>
+
+        <br>
         <form action="#">
 
             <!-- Título da Receita -->
@@ -154,7 +161,7 @@
             </div>
 
             <button id="submitBtn" type="submit" class="btn btn-primary m-3">Salvar</button>
-            <button id="cancelBtn" type="button" onclick="cancela()" class="btn btn-secondary cancel-button">Cancelar</button>
+            <a id="cancelBtn" href="receita.html" class="btn btn-secondary cancel-button">Cancelar</a>
         </form>
     </div>
 

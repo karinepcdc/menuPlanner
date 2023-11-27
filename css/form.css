@@ -19,7 +19,7 @@ label.dark-bg {
     color: white;
 }
 
-button {
+button, a.btn {
     font-family: Paprika, Georgia, 'Times New Roman', Times, serif !important;
     box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
     border-radius: 15px !important;
@@ -33,11 +33,14 @@ button[type=submit] {
     border: 2px solid #3d686c !important;
 }
 
+a.btn {
+    text-decoration: none;
+}
+
 .cancel-button {
     color: #DDCE2A;
     background-color: white !important;
     border: 2px solid #DDCE2A !important;
-
 }
 
 .form-group {

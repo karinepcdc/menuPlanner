@@ -1,0 +1,24 @@
+h2 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style-type: '-';
+}
+
+ul li {
+    padding-left: 2px;
+}
+
+a.btn-edit {
+    font-family: Paprika, Georgia, 'Times New Roman', Times, serif !important;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
+    border-radius: 15px !important;
+    padding: 5px 20px !important;
+    color: white;
+    background-color: #5B9AA0 !important;
+    text-decoration: none;
+    /*border: 2px solid #3d686c !important;*/
+}
+
