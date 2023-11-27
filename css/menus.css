@@ -10,3 +10,21 @@
     margin: 0;
     padding: 0;
 }
+
+.menu-lateral {
+    font-family: Piazzolla, sans-serif;
+    font-weight: 600;
+    min-width: fit-content;
+}
+
+.active {
+    background-color: #DDCE2A;
+    border-radius: 0 15px 15px 0;
+
+
+}
+
+.nav-link {
+    padding-left: 2rem;
+
+}
