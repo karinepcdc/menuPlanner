@@ -13,19 +13,31 @@ label {
     font-style: normal;
     font-weight: 600;
     font-size: 1.1rem;
+}
+
+label.dark-bg {
     color: white;
 }
 
-button[type=submit] {
+button {
     font-family: Paprika, Georgia, 'Times New Roman', Times, serif !important;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
+    border-radius: 15px !important;
+    padding: 5px 30px !important;
+}
+
+button[type=submit] {
     /*font-size: 14px;*/
     color: white;
     background-color: #5B9AA0 !important;
-    border-radius: 15px !important;
-    border: 0.5px solid #3d686c !important;
-    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
-    width: 50%;
-    /*padding: 10px;*/
+    border: 2px solid #3d686c !important;
+}
+
+.cancel-button {
+    color: #DDCE2A;
+    background-color: white !important;
+    border: 2px solid #DDCE2A !important;
+
 }
 
 .form-group {

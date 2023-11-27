@@ -1,0 +1,29 @@
+h2 {
+    font-weight: 600;
+}
+
+ul {
+    list-style-type: '-';
+}
+
+ul li {
+    padding-left: 2px;
+}
+
+.input-add-item {
+    display: flex;
+}
+
+.btn-icon > i.fa-circle-plus, .btn-icon-lg > i.fa-circle-plus {
+    color: #5a9a9f;
+    transition: 0.3s;
+}
+
+.btn-icon > i.fa-circle-plus:hover, .btn-icon-lg > i.fa-circle-plus:hover {
+    color: #3d686c;
+}
+
+.img-receita {
+    width: 300px;
+}
+

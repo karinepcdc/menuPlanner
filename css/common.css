@@ -1,13 +1,24 @@
 body {
-    font-family: Piazzolla, sans-serif;
+    font-family: Mate, sans-serif;
     font-weight: 400;
     margin: 0;
 }
 
-.header-style {
+.header-style-main-blue {
     font-family: Paprika, Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     color: #5B9AA0;
+}
+
+.header-style-main-purple {
+    font-family: Paprika, Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #622569;
+}
+
+.header-style-secondary {
+    font-family: Paprika, Georgia, 'Times New Roman', Times, serif;
+    color: black;
 }
 
 .background-style-primary {
@@ -23,4 +34,39 @@ body {
     font-style: italic;
     font-size: 1rem;
     color: #DDCE2A;
+}
+
+.btn-icon, .btn-icon-lg {
+    background-color: transparent;
+    margin-left: 1rem;
+    padding: 0 !important;
+    border: none;
+    width: 2rem;
+    border-radius: 50% !important;
+    /*box-shadow: none;*/
+    cursor: pointer;
+    height: 2rem;
+    /*box-shadow: 0px 3px 8px #9b9b9b, inset 0px 2px 3px #fff;*/
+    box-shadow: 0 2px 3px rgba(0,0,0,.4);
+}
+
+.btn-icon-lg {
+    width: 3rem;
+    height: 3rem;
+}
+
+.btn-icon:hover, .btn-icon-lg:hover {
+}
+
+.btn-icon:active, .btn-icon-lg:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,.4) ;
+    transform: translateY(3px);
+}
+
+.btn-icon > i, .btn-icon-lg > i {
+    padding: 0;
+}
+
+.label-foto {
+    margin-left: 1rem;
 }
