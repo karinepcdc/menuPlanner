@@ -22,3 +22,42 @@ a.btn-edit {
     /*border: 2px solid #3d686c !important;*/
 }
 
+.btn-lista-compras {
+    background-color: #5B9AA0;
+    width: 2rem;
+    height: 100%;
+}
+
+.txt-lista-compras {
+    color: white;
+    font-family: Piazzolla, sans-serif;
+    font-weight: 600;
+    width: 200px;
+    writing-mode: vertical-lr;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.btn-close {
+    border: none;
+    box-shadow: none;
+}
+.offcanvas-title {
+    color: white;
+    font-family: Piazzolla, sans-serif;
+    font-weight: 600;
+    text-align: center;
+
+}
+
+.offcanvas-header {
+    background-color: #5B9AA0;
+}
+
+html, body {
+    height: 100%;
+}
+.container-fluid, .side-button {
+    height: 100vh;
+    overflow-y: hidden; /* don't show content that exceeds my height */
+}
