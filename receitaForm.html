@@ -95,10 +95,22 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <ul>
-                        <li>1 lata de tomate pelati</li>
-                        <li>4 Tomates</li>
-                        <li>1 dente de alho grande picado</li>
+                    <ul id="listaIngredientes">
+                        <li id="igrediente_1" class="p-2 rounded-2" onmouseover="emphasis('igrediente_1')" onmouseleave="unemphasis('igrediente_1')">
+                            <span class="purple-icon pe-2" hidden><i class="fa-solid fa-ellipsis-vertical"></i></span>
+                            <span>1 lata de tomate pelati</span>
+                            <span class="purple-icon ps-2" onclick="removeItem('igrediente_1')"><i class="fa-solid fa-trash"></i></span>
+                        </li>
+                        <li id="igrediente_2" class="p-2 rounded-2" onmouseover="emphasis('igrediente_2')" onmouseleave="unemphasis('igrediente_2')">
+                            <span class="purple-icon pe-2" hidden><i class="fa-solid fa-ellipsis-vertical"></i></span>
+                            <span>4 Tomates</span>
+                            <span class="purple-icon ps-2" onclick="removeItem('igrediente_2')"><i class="fa-solid fa-trash"></i></span>
+                        </li>
+                        <li id="igrediente_3" class="p-2 rounded-2" onmouseover="emphasis('igrediente_3')" onmouseleave="unemphasis('igrediente_3')">
+                            <span class="purple-icon pe-2" hidden><i class="fa-solid fa-ellipsis-vertical"></i></span>
+                            <span>1 dente de alho grande picado</span>
+                            <span class="purple-icon ps-2" onclick="removeItem('igrediente_3')"><i class="fa-solid fa-trash"></i></span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -166,6 +178,9 @@
     </div>
 
 </main>
+
+<!-- Javascripts específicos de sua página -->
+<script src='js/receitasForm.js'></script>
 
 </body>
 </html>

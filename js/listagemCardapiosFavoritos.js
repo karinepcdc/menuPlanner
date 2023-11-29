@@ -8,5 +8,7 @@ function toggleFavorito(heartId) {
 }
 
 function deleteMenu(id) {
-    alert("Tem certeza que gostaria de remover o cardápio? \n A operação não pode ser desfeita.");
+    //alert("Tem certeza que gostaria de remover o cardápio? \n A operação não pode ser desfeita.");
+    const item = document.getElementById(id);
+    item.parentElement.removeChild(item);
 }
