@@ -17,6 +17,7 @@
 
     <!-- Css específicos de sua página -->
     <link rel='stylesheet' href='css/common.css'>
+    <link rel='stylesheet' href='css/menus.css'>
     <link rel='stylesheet' href='css/form.css'>
     <link rel='stylesheet' href='css/cadastroUsuario.css'>
 
@@ -36,6 +37,15 @@
 
 <body>
 
+<nav class="navbar navbar-expand-sm top-menu ps-2">
+
+    <div class="d-flex align-items-center navbar-brand">
+        <img class="pe-2" src="img/Logo.png" alt="">
+        <p class="header-logo">Menu Planner</p>
+    </div>
+
+</nav>
+
 <main class="cadastro-content mx-auto">
 
     <div class="container">
@@ -43,17 +53,20 @@
         <h1 class="header-style-main-blue">Cadastro</h1>
 
         <div class="container background-style-primary p-5">
-            <form action="#">
+            <form action="/cadastro" method="post" class="needs-validation">
 
                 <div class="row">
                     <div class="form-group">
                         <label for="username" class="form-label dark-bg">Nome de usuário</label>
                         <input
                                 id="username"
+                                name="username"
                                 type="text"
                                 placeholder="e.g. Maria123"
                                 class="form-control"
+                                required
                         >
+                        <div class="invalid-feedback">Escolha um nome de usuário!</div>
                     </div>
                 </div>
 
@@ -62,10 +75,13 @@
                         <label for="userEmail" class="form-label dark-bg">email</label>
                         <input
                                 id="userEmail"
+                                name="userEmail"
                                 type="email"
                                 placeholder="Maria123@myDomain.com"
                                 class="form-control"
+                                required
                         >
+                        <div class="invalid-feedback">O email é necessário para recuperação de conta!</div>
                     </div>
                 </div>
 
@@ -74,10 +90,13 @@
                         <label for="passwd" class="form-label dark-bg">Senha</label>
                         <input
                                 id="passwd"
+                                name="passwd"
                                 type="password"
                                 placeholder="**********"
                                 class="form-control"
+                                required
                         >
+                        <div class="invalid-feedback">Preencha uma senha!</div>
                     </div>
                 </div>
 
@@ -89,13 +108,15 @@
                                 type="password"
                                 placeholder="**********"
                                 class="form-control"
+                                required
                         >
+                        <div class="invalid-feedback">Preencha uma senha!</div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group text-center">
-                        <a href="login.html" class="link">Já estou cadastrado!</a>
+                        <a href="/login" class="link">Já estou cadastrado!</a>
                     </div>
                 </div>
 
@@ -108,6 +129,8 @@
     </div>
 </main>
 
+<!-- Javascripts específicos de sua página -->
+<script src='js/cadastro.js'></script>
 
 </body>
 </html>

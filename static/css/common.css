@@ -4,6 +4,11 @@ body {
     margin: 0;
 }
 
+.container-fluid {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+}
+
 .header-style-main-blue {
     font-family: Paprika, Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;

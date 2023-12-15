@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Receitas</title>
+
+    <!-- Estilo css de base que garante uma consistência melhor entre navegadores -->
+    <link rel='stylesheet' href='css/normalize.css'>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mate&family=Pangolin&family=Paprika&family=Piazzolla:opsz,wght@8..30,100;8..30,400;8..30,600;8..30,700&display=swap"
+          rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Css específicos de sua página -->
+    <link rel='stylesheet' href='css/common.css'>
+    <link rel='stylesheet' href='css/menus.css'>
+    <link rel='stylesheet' href='css/listagem-receitas.css'>
+
+    <!-- Ensure proper rendering and touch zooming with mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Scripts -->
+
+    <!-- Trata prefixos proprietários para propriedades CSS3 que ainda não se tornaram padrão entre navegadores. Adiciona automaticamente os prefixos dos browsers no código css quando necessário. -->
+    <script src='js/prefixfree.min.js'></script>
+
+    <!-- Latest compiled JavaScript Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+<div class="container-fluid p-0">
+
+    <nav class="navbar navbar-expand-sm top-menu ps-2">
+
+        <div class="d-flex align-items-center navbar-brand">
+            <img class="pe-2" src="img/Logo.png" alt="">
+            <p class="header-logo">Menu Planner</p>
+        </div>
+
+    </nav>
+
+    <div class="d-flex flex-row">
+
+        <nav class="navbar menu-lateral bg-light navbar-light align-self-stretch">
+
+            <div class="container-fluid p-0">
+                <!-- Links -->
+                <ul class="navbar-nav flex-fill pe-2">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Cardápio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cardapios">Cardápios Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/receitas">Receitas</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="flex-grow-1 pt-5 ps-5">
+            <div class="container pt-5 px-5">
+                <h1 class="header-style-main-purple text-center">Receitas</h1>
+
+                <div class="d-flex flex-column align-items-center pt-3">
+                    <a class="nav-receita" href="/receita/1">
+                        <div class="d-inline-flex pt-3">
+                            <img src="img/imgPlaceholder.png" class="img-thumbnail img-thumbnail-receita flex-shrink-1"
+                                 alt="">
+                            <p class="align-self-center ps-5 m-0">MOLHO VERMELHO</p>
+                        </div>
+                    </a>
+
+                    <a class="nav-receita" href="/receita/2">
+                        <div class="d-inline-flex pt-3">
+                            <img src="img/imgPlaceholder.png" class="img-thumbnail img-thumbnail-receita flex-shrink-1"
+                                 alt="">
+                            <p class="align-self-center ps-5 m-0">MOLHO VERMELHO</p>
+                        </div>
+                    </a>
+
+                    <a class="nav-receita" href="/receita/3">
+                        <div class="d-inline-flex pt-3">
+                            <img src="img/imgPlaceholder.png" class="img-thumbnail img-thumbnail-receita flex-shrink-1"
+                                 alt="">
+                            <p class="align-self-center ps-5 m-0">MOLHO VERMELHO</p>
+                        </div>
+                    </a>
+
+                    <a class="nav-receita" href="/receita/4">
+                        <div class="d-inline-flex pt-3">
+                            <img src="img/imgPlaceholder.png" class="img-thumbnail img-thumbnail-receita flex-shrink-1"
+                                 alt="">
+                            <p class="align-self-center ps-5 m-0">MOLHO VERMELHO</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </main>
+
+    </div>
+</div>
+</body>
+</html>

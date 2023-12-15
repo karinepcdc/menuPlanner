@@ -4,7 +4,7 @@ function emphasis(id) {
 
         item.classList.add('shadow', 'd-inline');
         item.children[0].hidden = false;
-        // item.children[2].hidden = true;
+        item.children[2].hidden = false;
 
 }
 
@@ -13,7 +13,7 @@ function unemphasis(id) {
 
     item.classList.remove('shadow', 'd-inline');
     item.children[0].hidden = true;
-    // item.children[2].hidden = false;
+    item.children[2].hidden = true;
 }
 
 function removeItem(id) {

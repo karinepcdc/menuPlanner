@@ -19,6 +19,7 @@
 
     <!-- Css específicos de sua página -->
     <link rel='stylesheet' href='css/common.css'>
+    <link rel='stylesheet' href='css/menus.css'>
     <link rel='stylesheet' href='css/form.css'>
     <link rel='stylesheet' href='css/login.css'>
 
@@ -37,19 +38,29 @@
 
 <body>
 
+<nav class="navbar navbar-expand-sm top-menu ps-2">
+
+    <div class="d-flex align-items-center navbar-brand">
+        <img class="pe-2" src="img/Logo.png" alt="">
+        <p class="header-logo">Menu Planner</p>
+    </div>
+
+</nav>
+
 <main class="login-content mx-auto">
     <div class="container">
 
         <h1 class="header-style-main-blue">Login</h1>
 
         <div class="container background-style-primary p-5 ">
-            <form action="#">
+            <form action="/login" method="post">
 
                 <div class="row">
                     <div class="form-group">
                         <label for="username" class="form-label dark-bg">Nome de usuário</label>
                         <input
                                 id="username"
+                                name="username"
                                 type="text"
                                 placeholder="e.g. Maria123"
                                 class="form-control"
@@ -62,6 +73,7 @@
                         <label for="passwd" class="form-label dark-bg">Senha</label>
                         <input
                                 id="passwd"
+                                name="passwd"
                                 type="password"
                                 placeholder="**********"
                                 class="form-control"
@@ -71,7 +83,7 @@
 
                 <div class="row">
                     <div class="form-group text-center">
-                        <a href="cadastroForm.html" class="link">Quero me cadastrar!</a>
+                        <a href="/cadastroForm" class="link">Quero me cadastrar!</a>
                     </div>
                 </div>
 
