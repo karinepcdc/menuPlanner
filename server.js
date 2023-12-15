@@ -16,7 +16,7 @@ const fs = require('fs');
 const multer = require('multer');
 
 const bodyParser = require('body-parser');
-const {usersDB} = require("./db");
+const {usersDB, recepiesDB, cardapiosDB} = require("./db");
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('static'));
@@ -70,7 +70,7 @@ app.post('/cadastro', function (req, res) {
         return res.send(validationErr);
     }
 
-    db.usersDB.set(user.username, user);
+    usersDB.set(user.username, user);
     console.log(usersDB);
 
     res.redirect('/login');
@@ -80,6 +80,10 @@ app.post('/cadastro', function (req, res) {
 /** receitas */
 app.get('/receitas', function (req, res) {
     res.sendFile( path.join(__dirname, 'static', 'listagemReceitas.html'));
+});
+
+app.get('/all/receitas', function (req, res) {
+    res.json(recepiesDB);
 });
 
 app.get('/receita', function (req, res) {
@@ -95,6 +99,9 @@ app.get('/cardapios', function (req, res) {
     res.sendFile( path.join(__dirname, 'static', 'listagemCardapios.html'));
 });
 
+app.get('/all/cardapios', function (req, res) {
+    res.json(cardapiosDB);
+});
 
 /** erros */
 app.use(function(req, res, next) {
@@ -108,7 +115,7 @@ function userValidation(user) {
     if (!user.username || !user.passwd || !user.email) {
         err.push("Preencha os campos obrigatórios!");
 
-    } else if(db.usersDB.get(user.username)) {
+    } else if(usersDB.get(user.username)) {
         err.push("Nome de usuário já cadastrado!")
     }
 
@@ -117,7 +124,7 @@ function userValidation(user) {
 
 function authenticate(username, passwd, ret) {
 
-    const user = db.usersDB.get(username);
+    const user = usersDB.get(username);
 
     if(user && user.passwd === passwd) {
         return ret(null, user);
