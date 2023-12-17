@@ -1,18 +1,27 @@
 "use strict";
 
-let usersDB = exports.usersDB = new Map();
+let usersDB = new Map();
 
-let recepiesDB = exports.recepiesDB = [];
+let recepiesDB = [];
 
-let cardapiosDB = exports.cardapiosDB = [];
+let cardapiosDB = [];
 
 
-exports.setFavorito = function (ind, isFavorito) {
+const setFavorito = function (ind, isFavorito) {
     cardapiosDB[ind].favorito = isFavorito;
 }
 
-exports.populate = function () {
+const getCardapiosDB = function () {
+    return cardapiosDB;
+}
+
+const removeMenu = function (id) {
+    cardapiosDB = cardapiosDB.filter(c => c.id != id);
+}
+
+const populate = function () {
     console.log('iniciando banco de dados dummy');
+
     usersDB.set("karine", {username: "karine", passwd: "123", email: "karine@gmail.com"});
 
     recepiesDB.push({
@@ -87,3 +96,5 @@ exports.populate = function () {
         favorito: true,
     });
 }
+
+module.exports = { usersDB, recepiesDB, cardapiosDB, populate, getCardapiosDB, setFavorito, removeMenu };

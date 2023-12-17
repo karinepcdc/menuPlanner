@@ -4,8 +4,11 @@ const express = require('express');
 const path = require('path');
 
 /** memory database **/
-const db = require('./db');
-db.populate();
+let { usersDB, recepiesDB, populate, getCardapiosDB, setFavorito, removeMenu } = require('./db');
+
+if(usersDB.size === 0 && recepiesDB.length === 0 && getCardapiosDB().length === 0) {
+    populate();
+}
 
 
 const app = express();
@@ -16,7 +19,7 @@ const fs = require('fs');
 const multer = require('multer');
 
 const bodyParser = require('body-parser');
-let {usersDB, recepiesDB, cardapiosDB, setFavorito} = require("./db");
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'static/')));
@@ -94,7 +97,6 @@ app.get('/receita/:id', function (req, res) {
     } else {
         res.status(404).send("Receita não encontrada.");
     }
-    console.log(req.params.id)
 });
 
 app.get('/api/receita/:id', function (req, res) {
@@ -102,8 +104,16 @@ app.get('/api/receita/:id', function (req, res) {
     res.json(r);
 });
 
-app.get('/receitaForm', function (req, res) {
-    res.sendFile( path.join(__dirname, 'static', 'receitaForm.html'));
+app.get('/receitaForm/:id?', function (req, res) {
+
+    res.sendFile(path.join(__dirname, 'static', 'receitaForm.html'));
+
+    if(req.params.id) {
+        const r = recepiesDB.find(r => r.id == req.params.id);
+        if (!r) {
+            res.status(404).send("Receita não encontrada.");
+        }
+    }
 });
 
 /** cardápios */
@@ -112,7 +122,8 @@ app.get('/cardapios', function (req, res) {
 });
 
 app.get('/all/cardapios', function (req, res) {
-    res.json(cardapiosDB);
+    res.json(getCardapiosDB());
+    console.log(getCardapiosDB())
 });
 
 app.get('/home/cardapio/:id', function (req, res) {
@@ -120,27 +131,25 @@ app.get('/home/cardapio/:id', function (req, res) {
 });
 
 app.get('/cardapio/:id', function (req, res) {
-    const c = cardapiosDB.findIndex(c => c.id == req.params.id);
+    const c = getCardapiosDB().findIndex(c => c.id == req.params.id);
 
     if(c !== -1 && req.query.favorito) {
-        setFavorito(c, req.query.favorito);
+        setFavorito(c, req.query.favorito === "true");
         res.status(200).send("sucesso");
     } else {
         res.status(404).send("Cardápio não encontrado.");
     }
-    console.log(req.params.id, req.query.favorito, cardapiosDB);
 });
 
 app.delete('/cardapio/:id', function (req, res) {
-    const c = cardapiosDB.find(c => c.id == req.params.id);
+    const c = getCardapiosDB().find(c => c.id == req.params.id);
 
     if(c) {
-        cardapiosDB = cardapiosDB.filter(c => c.id !== req.params.id);
+        removeMenu(req.params.id);
         res.status(200).send("sucesso");
     } else {
         res.status(404).send("Cardápio não encontrado.");
     }
-    console.log(c, cardapiosDB);
 });
 
 /** erros */
