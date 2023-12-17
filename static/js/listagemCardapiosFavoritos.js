@@ -4,9 +4,8 @@ let loading = false;
 window.onload = async function getReceitas() {
     loading = true;
 
-    const response = await fetch("/all/cardapios");
+    const response = await fetch("/all/cardapios", { method: 'GET' });
     const cardapios = await response.json();
-    console.log(cardapios);
 
     const listagemElem = document.getElementById('listagemCardapios');
 
@@ -17,37 +16,17 @@ window.onload = async function getReceitas() {
     loading = false;
 };
 
-
-/*
-<div class="d-flex flex-column align-items-center pt-3">
-    <div id="cardapio_1" class="d-inline-flex pt-3">
-        <span class="purple-icon pe-2" onclick="toggleFavorito('heart_cardapio_1')">
-            <i class="fa-solid fa-heart"></i>
-        </span>
-
-        <span class="purple-icon" onclick="carrega(1)">
-        <i class="fa-solid fa-arrow-up-from-bracket"></i>
-        </span>
-
-        <p class="align-self-center ps-3 m-0">CARDÁPIO BÁSICO</p>
-
-        <span class="purple-icon ps-2" onclick="deleteMenu(1)">
-        <i class="fa-solid fa-trash"></i>
-        </span>
-    </div>
-</div>
- */
 function createItemList(cardapio) {
-    const div2Elem = document.createElement('div');
-    div2Elem.id = 'cardapio-' + cardapio.id;
-    div2Elem.classList.add('d-inline-flex', 'p-3');
+    const divElem = document.createElement('div');
+    divElem.id = 'cardapio_' + cardapio.id;
+    divElem.classList.add('d-inline-flex', 'p-3');
 
     // icone favorito
     const spanHeartElem = document.createElement('span');
     spanHeartElem.classList.add('purple-icon', 'pe-3');
     spanHeartElem.title = "favoritar";
     spanHeartElem.addEventListener('click',
-        function() { toggleFavorito('heart_cardapio_' + cardapio.id ) });
+        function() { toggleFavorito(cardapio.id) });
 
     const iconHeartElem = document.createElement('i');
     iconHeartElem.id = 'heart_cardapio_' + cardapio.id;
@@ -87,29 +66,64 @@ function createItemList(cardapio) {
     pElemt.classList.add('align-self-center', 'ps-3', 'm-0');
     pElemt.appendChild(document.createTextNode(cardapio.nome));
 
-    div2Elem.appendChild(spanHeartElem);
-    div2Elem.appendChild(spanArrowElem);
-    div2Elem.appendChild(spanTrashElem);
-    div2Elem.appendChild(pElemt);
+    divElem.appendChild(spanHeartElem);
+    divElem.appendChild(spanArrowElem);
+    divElem.appendChild(spanTrashElem);
+    divElem.appendChild(pElemt);
 
-    return div2Elem;
+    return divElem;
 }
 
 /* funcionalidades */
-function toggleFavorito(heartId) {
-    if(document.getElementById(heartId).classList.contains('fa-solid')) {
-        document.getElementById(heartId).classList.replace('fa-solid', 'fa-regular');
-    } else {
-        document.getElementById(heartId).classList.replace('fa-regular', 'fa-solid');
+async function toggleFavorito(id) {
+
+    const isFavorito = document.getElementById('heart_cardapio_' + id).classList.contains('fa-solid');
+
+    try {
+        // favoritar cardápio
+        const resposta = await fetch('/cardapio/' + id + '?favorito=' + !isFavorito, {method: 'GET'});
+
+        // atualizar lista
+        if (resposta.ok) {
+            if (isFavorito) {
+                document.getElementById('heart_cardapio_' + id).classList.replace('fa-solid', 'fa-regular');
+            } else {
+                document.getElementById('heart_cardapio_' + id).classList.replace('fa-regular', 'fa-solid');
+            }
+        } else {
+            showAlerts("Cardápio não encontrado no servidor!", 'DANGER');
+        }
+    } catch (e) {
+        showAlerts(e, 'DANGER');
     }
 }
 
-function deleteMenu(id) {
-    //alert("Tem certeza que gostaria de remover o cardápio? \n A operação não pode ser desfeita.");
-    const item = document.getElementById('cardapio_' + id);
-    item.parentElement.removeChild(item);
+async function deleteMenu(id) {
+    try {
+        // remover cardápio
+        const resposta = await fetch("/cardapio/" + id, {method: "DELETE"});
+
+        console.log(resposta)
+        console.log(resposta.ok)
+
+        // atualizar lista
+        if (resposta.ok) {
+            const listagemElem = document.getElementById('listagemCardapios');
+            const deletedElem = document.getElementById('cardapio_' + id);
+
+            console.log("atualizando lista")
+            listagemElem.removeChild(deletedElem);
+
+            showAlerts("Cardápio removido", 'SUCESSO');
+
+        } else {
+            showAlerts("Cardápio não encontrado no servidor!", 'DANGER');
+        }
+    } catch (e) {
+        showAlerts(e, 'DANGER');
+    }
 }
 
 function carregaMenu(id) {
-    window.location.href = '/';
+    window.location.href = '/cardapio/' + id;
 }

@@ -16,7 +16,7 @@ const fs = require('fs');
 const multer = require('multer');
 
 const bodyParser = require('body-parser');
-const {usersDB, recepiesDB, cardapiosDB} = require("./db");
+let {usersDB, recepiesDB, cardapiosDB} = require("./db");
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('static'));
@@ -101,6 +101,34 @@ app.get('/cardapios', function (req, res) {
 
 app.get('/all/cardapios', function (req, res) {
     res.json(cardapiosDB);
+});
+
+app.get('/home/cardapio/:id', function (req, res) {
+    res.sendFile(path.join(__dirname, 'static', 'home.html')); // TODO fazer página
+});
+
+app.get('/cardapio/:id', function (req, res) {
+    const c = cardapiosDB.find(c => c.id == req.params.id);
+
+    if(c && req.query.favorito) {
+        c.favorito = req.query.favorito;
+        res.status(200).send("sucesso");
+    } else {
+        res.status(404).send("Cardápio não encontrado.");
+    }
+    console.log(req.params.id, req.query.favorito, cardapiosDB);
+});
+
+app.delete('/cardapio/:id', function (req, res) {
+    const c = cardapiosDB.find(c => c.id == req.params.id);
+
+    if(c) {
+        cardapiosDB = cardapiosDB.filter(c => c.id !== req.params.id);
+        res.status(200).send("sucesso");
+    } else {
+        res.status(404).send("Cardápio não encontrado.");
+    }
+    console.log(c, cardapiosDB);
 });
 
 /** erros */
