@@ -4,9 +4,8 @@ let loading = false;
 window.onload = async function getReceitas() {
     loading = true;
 
-        const response = await fetch("/all/receitas");
+        const response = await fetch("/api/all/receitas");
         const receitas = await response.json();
-        console.log(receitas);
 
     const listagemElem = document.getElementById('listagemReceitas');
 
@@ -21,7 +20,7 @@ function createItemList(receita) {
     const aElem = document.createElement('a');
     aElem.id = 'receita-' + receita.id;
     aElem.classList.add('nav-receita');
-    aElem.href = '/receita';
+    aElem.href = '/receita/' + receita.id;
 
     const divElem = document.createElement('div');
     divElem.classList.add('d-inline-flex', 'pt-3');

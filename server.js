@@ -16,10 +16,10 @@ const fs = require('fs');
 const multer = require('multer');
 
 const bodyParser = require('body-parser');
-let {usersDB, recepiesDB, cardapiosDB} = require("./db");
+let {usersDB, recepiesDB, cardapiosDB, setFavorito} = require("./db");
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static('static'));
+app.use(express.static(path.join(__dirname, 'static/')));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const server = app.listen(port, () => {
@@ -82,12 +82,24 @@ app.get('/receitas', function (req, res) {
     res.sendFile( path.join(__dirname, 'static', 'listagemReceitas.html'));
 });
 
-app.get('/all/receitas', function (req, res) {
+app.get('/api/all/receitas', function (req, res) {
     res.json(recepiesDB);
 });
 
-app.get('/receita', function (req, res) {
-    res.sendFile( path.join(__dirname, 'static', 'receita.html'));
+app.get('/receita/:id', function (req, res) {
+    const r = recepiesDB.find(r => r.id == req.params.id);
+
+    if(r) {
+        res.sendFile( path.join(__dirname, 'static', 'receita.html'));
+    } else {
+        res.status(404).send("Receita não encontrada.");
+    }
+    console.log(req.params.id)
+});
+
+app.get('/api/receita/:id', function (req, res) {
+    const r = recepiesDB.find(r => r.id == req.params.id);
+    res.json(r);
 });
 
 app.get('/receitaForm', function (req, res) {
@@ -108,10 +120,10 @@ app.get('/home/cardapio/:id', function (req, res) {
 });
 
 app.get('/cardapio/:id', function (req, res) {
-    const c = cardapiosDB.find(c => c.id == req.params.id);
+    const c = cardapiosDB.findIndex(c => c.id == req.params.id);
 
-    if(c && req.query.favorito) {
-        c.favorito = req.query.favorito;
+    if(c !== -1 && req.query.favorito) {
+        setFavorito(c, req.query.favorito);
         res.status(200).send("sucesso");
     } else {
         res.status(404).send("Cardápio não encontrado.");
