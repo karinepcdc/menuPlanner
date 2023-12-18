@@ -89,6 +89,12 @@ app.get('/api/all/receitas', function (req, res) {
     res.json(recepiesDB);
 });
 
+app.post('/receitaForm', function (req, res) {
+   console.log(req.body);
+   console.log("entrei")
+    res.status(200).send("sucesso");
+});
+
 app.get('/receita/:id', function (req, res) {
     const r = recepiesDB.find(r => r.id == req.params.id);
 

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Receita</title>
+    <base href="/">
 
     <!-- Estilo css de base que garante uma consistência melhor entre navegadores -->
     <link rel='stylesheet' href='css/normalize.css'>
@@ -71,159 +72,152 @@
             </div>
         </nav>
 
-
-    <main class="flex-grow-1 pt-5 ps-5">
-        <div class="container pt-5 ps-5">
-
-            <div class="row mb-3">
-                <div class="col-md-8">
-                    <h1 class="header-style-main-purple text-center">NOVA RECEITA</h1>
-                </div>
+        <div class="d-flex flex-column flex-grow-1">
+            <div id="alert">
+                <!-- Espaço reservado para mostrar alertas -->
             </div>
+            <main class="flex-grow-1 pt-5 ps-5">
+                <div class="container pt-5 ps-5">
 
-            <br>
-            <form action="#">
-
-                <!-- Título da Receita -->
-                <div class="row">
-                    <div class="form-group col-md-8">
-                        <label for="tituloReceita" class="form-label">Título</label>
-                        <input
-                                id="tituloReceita"
-                                type="text"
-                                placeholder="Insira o título da sua receita"
-                                class="form-control"
-                        >
+                    <div class="row mb-3">
+                        <div class="col-md-8">
+                            <h1 class="header-style-main-purple text-center">NOVA RECEITA</h1>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Imagem da Receita -->
-                <br>
-                <div class="row">
-                    <div class="col-md-8">
-                        <img
-                                id="imgReceita"
-                                src="img/imgPlaceholder.png"
-                                class="rounded mx-auto mb-4 d-block img-receita"
-                                alt="Imagem da receita adicionada."
-                        />
-                        <div class="d-flex justify-content-center">
-                            <div class="btn btn-icon-lg">
+                    <br>
+                    <form id="receitaForm">
+
+                        <!-- Título da Receita -->
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label for="tituloReceita" class="form-label">Título</label>
                                 <input
-                                        id="fileImgReceita"
-                                        type="file"
-                                        class="form-control d-none"
-                                        onchange=""
-                                />
-                                <i class="fa-solid fa-circle-plus fa-3x" style=""></i>
+                                        id="tituloReceita"
+                                        type="text"
+                                        placeholder="Insira o título da sua receita"
+                                        class="form-control"
+                                >
                             </div>
-                            <label class="label-foto align-self-center">Adicionar foto</label>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Ingredientes da Receita -->
-                <br>
-                <h2>Ingredientes</h2>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <ul id="listaIngredientes">
-                            <li id="igrediente_1" class="p-2 rounded-2" onmouseover="emphasis('igrediente_1')"
-                                onmouseleave="unemphasis('igrediente_1')">
-                                <span class="purple-icon pe-2" hidden><i
-                                        class="fa-solid fa-ellipsis-vertical"></i></span>
-                                <span>1 lata de tomate pelati</span>
-                                <span class="purple-icon ps-2" onclick="removeItem('igrediente_1')" hidden><i
-                                        class="fa-solid fa-trash"></i></span>
-                            </li>
-                            <li id="igrediente_2" class="p-2 rounded-2" onmouseover="emphasis('igrediente_2')"
-                                onmouseleave="unemphasis('igrediente_2')">
-                                <span class="purple-icon pe-2" hidden><i
-                                        class="fa-solid fa-ellipsis-vertical"></i></span>
-                                <span>4 Tomates</span>
-                                <span class="purple-icon ps-2" onclick="removeItem('igrediente_2')" hidden><i
-                                        class="fa-solid fa-trash"></i></span>
-                            </li>
-                            <li id="igrediente_3" class="p-2 rounded-2" onmouseover="emphasis('igrediente_3')"
-                                onmouseleave="unemphasis('igrediente_3')">
-                                <span class="purple-icon pe-2" hidden><i
-                                        class="fa-solid fa-ellipsis-vertical"></i></span>
-                                <span>1 dente de alho grande picado</span>
-                                <span class="purple-icon ps-2" onclick="removeItem('igrediente_3')" hidden><i
-                                        class="fa-solid fa-trash"></i></span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-md-4">
-                        <div class="input-add-item">
-                            <input
-                                    id="itemIngredientes"
-                                    type="text"
-                                    placeholder="Adicione um ingrediente na listagem"
-                                    class="form-control"
-                            >
-                            <button class="btn-icon"><i class="fa-solid fa-circle-plus fa-2x" style=""></i></button>
+                        <!-- Imagem da Receita -->
+                        <br>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <img
+                                        id="imgReceita"
+                                        src="img/imgPlaceholder.png"
+                                        class="rounded mx-auto mb-4 d-block img-receita"
+                                        alt="Imagem da receita adicionada."
+                                />
+                                <div class="d-flex justify-content-center">
+                                    <div class="btn btn-icon-lg">
+                                        <input
+                                                id="fileImgReceita"
+                                                type="file"
+                                                class="form-control d-none"
+                                                onchange=""
+                                        />
+                                        <i class="fa-solid fa-circle-plus fa-3x" style=""></i>
+                                    </div>
+                                    <label class="label-foto align-self-center">Adicionar foto</label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Lista de compras da Receita -->
-                <br>
-                <h2>Lista de compras</h2>
+                        <!-- Ingredientes da Receita -->
+                        <br>
+                        <h2>Ingredientes</h2>
 
-                <!--            TODO reformular, adicionar input e modal -->
-                <div class="row">
-                    <div class="col-md-4">
-                        <ul>
-                            <li>1 lata de tomate pelati</li>
-                            <li>4 Tomates</li>
-                            <li>1 dente de alho</li>
-                        </ul>
-                    </div>
-                </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <ul id="listaIngredientes">
+                                    <!--                                <li id="igrediente_1" class="p-2 rounded-2" onmouseover="emphasis('igrediente_1')" onmouseleave="unemphasis('igrediente_1')">-->
+                                    <!--                                    <span class="purple-icon pe-2" hidden>-->
+                                    <!--                                        <i class="fa-solid fa-ellipsis-vertical"></i>-->
+                                    <!--                                    </span>-->
 
-                <!-- Modo de Preparo da Receita -->
-                <br>
-                <h2>Modo de preparo</h2>
+                                    <!--                                    <span>1 lata de tomate pelati</span>-->
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <ol>
-                            <li>Bater os tomates no liquidificador com um pouco de água</li>
-                            <li>Refogar a cebola, alho e cubo de tempero.</li>
-                            <li>Acrescentar a cenoura</li>
-                        </ol>
-                    </div>
-                </div>
+                                    <!--                                    <span class="purple-icon ps-2" onclick="removeItem('igrediente_1')">-->
+                                    <!--                                        <i class="fa-solid fa-trash"></i>-->
+                                    <!--                                    </span>-->
+                                    <!--                                </li>-->
 
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <div class="input-add-item">
-                            <input
-                                    id="passoModoDePreparo"
-                                    type="text"
-                                    placeholder="Adicione um passo no modo de preparo"
-                                    class="form-control"
-                            >
-                            <button class="btn-icon"><i class="fa-solid fa-circle-plus fa-2x" style=""></i></button>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <div class="input-add-item">
+                                    <input
+                                            id="itemIngredientes"
+                                            type="text"
+                                            placeholder="Adicione um ingrediente na listagem"
+                                            class="form-control"
+                                    >
+                                    <button class="btn-icon" type="button" onclick="addItem('itemIngredientes')"><i
+                                            class="fa-solid fa-circle-plus fa-2x" style=""></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lista de compras da Receita -->
+                        <br>
+                        <h2>Lista de compras</h2>
+
+                        <!--            TODO reformular, adicionar input e modal -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <ul id="listagemCompras">
+                                    <!--                                <li>1 lata de tomate pelati</li>-->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Modo de Preparo da Receita -->
+                        <br>
+                        <h2>Modo de preparo</h2>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ol id="listagemPreparo">
+                                    <!--                                <li>Bater os tomates no liquidificador com um pouco de água</li>-->
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <div class="input-add-item">
+                                    <input
+                                            id="passoModoDePreparo"
+                                            type="text"
+                                            placeholder="Adicione um passo no modo de preparo"
+                                            class="form-control"
+                                    >
+                                    <button class="btn-icon" type="button" onclick="addItem('passoModoDePreparo')"><i
+                                            class="fa-solid fa-circle-plus fa-2x" style=""></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="submitBtn" type="button" onclick="salvaReceita()" class="btn btn-primary m-3">
+                            Salvar
+                        </button>
+                        <a id="cancelBtn" href="/receitas" class="btn btn-secondary cancel-button">Cancelar</a>
+                    </form>
                 </div>
 
-                <button id="submitBtn" type="submit" class="btn btn-primary m-3">Salvar</button>
-                <a id="cancelBtn" href="receita.html" class="btn btn-secondary cancel-button">Cancelar</a>
-            </form>
+            </main>
         </div>
-
-    </main>
 
     </div>
 </div>
 <!-- Javascripts específicos da página -->
+<script src='js/common.js'></script>
 <script src='js/receitasForm.js'></script>
 
 </body>
